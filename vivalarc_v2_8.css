@@ -1,0 +1,325 @@
+/* =========================================================
+   1. TOP BAR CLEANUP
+========================================================= */
+/*
+#header {
+    display: none !important;
+}
+
+.toolbar-addressbar {
+    border: none !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.window-buttongroup,
+.on-mainbar {
+    background-color: transparent !important;
+}
+
+.SearchField,
+.UrlBar-AddressField {
+    transition: opacity 150ms ease !important;
+}
+*/
+
+/* =========================================================
+   2. GLOBAL LAYOUT SETTINGS
+========================================================= */
+:root {
+  --closed-tab-width: 55px;
+  --expanded-tab-width: 220px;
+  --closed-panel-width: 55px;
+  --expanded-panel-width: 300px;
+}
+
+#browser {
+  display: flex !important;
+}
+
+#main {
+  flex: 1 1 auto !important;
+}
+
+.auto-hide-off
+  #browser.unified-ui.density-on.no-bottom-ui:not(.fullscreen, .is-settingspage)
+  #webpage-stack,
+.auto-hide-off
+  #browser.unified-ui.density-on.no-bottom-ui.maximized:not(
+    .mac,
+    .is-settingspage
+  )
+  #webpage-stack {
+  margin-bottom: 0px !important;
+}
+
+.auto-hide-off
+  #browser.density-on:not(
+    .fullscreen,
+    .is-settingspage,
+    .first-start
+  ).unified-ui
+  #webpage-stack,
+.auto-hide-off
+  #browser.density-on.maximized:not(
+    .mac,
+    .is-settingspage,
+    .first-start
+  ).unified-ui
+  #webpage-stack {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+/* =========================================================
+   3. WEBPAGE
+========================================================= */
+
+/* Push page content to account for collapsed overlays */
+#webview-container {
+  margin-left: 60px !important;
+  margin-right: 60px !important;
+}
+
+.SearchField,
+.MailSearchField-Inner,
+.UrlBar-AddressField {
+  border: none;
+}
+
+.color-behind-tabs-on .SearchField:focus-within,
+.color-behind-tabs-on .MailSearchField-Inner:focus-within,
+.color-behind-tabs-on .UrlBar-AddressField:focus-within {
+  outline: 2px solid rgb(0, 135, 255);
+  outline-offset: -2px;
+}
+
+/* =========================================================
+   4. TITLE BAR 
+=========================================================*/
+
+.toolbar-mainbar {
+  background: rgba(20, 20, 20, 0.27) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+}
+
+#main > .mainbar,
+.window-buttongroup {
+  background: transparent !important;
+  border: none !important;
+}
+
+button.ToolbarButton-Button:hover,
+.window-buttongroup button:hover,
+.vivaldi:hover {
+  background-color: rgba(211, 217, 227, 0.27) !important;
+  transition: background 0.2s, fill 0.2s !important;
+}
+
+button.ToolbarButton-Button,
+.window-buttongroup button,
+.vivaldi {
+  transition: background 0.2s, fill 0.2s !important;
+}
+
+.OmniDropdown {
+  background: rgba(20, 20, 20, 0.85) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+}
+
+.UrlBar-AddressField {
+  background: rgba(20, 20, 20, 0.55) !important;
+}
+
+.OmniLinkItem--Highlighted .OmniLinkItem-DisplayText,
+.OmniLinkItem--Highlighted .displayUrl,
+.OmniLinkItem--Highlighted .OmniLinkItem-Badge {
+  mix-blend-mode: normal !important;
+  color: white !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) !important;
+}
+
+#browser.win input:focus::selection,
+#browser.win textarea:focus::selection,
+#browser.win [contenteditable]:focus::selection,
+#browser.linux input:focus::selection,
+#browser.linux textarea:focus::selection,
+#browser.linux [contenteditable]:focus::selection {
+  mix-blend-mode: normal !important;
+  color: white !important;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4) !important;
+}
+/* =========================================================
+   5. STARTPAGE 
+=========================================================*/
+
+.webpageview.internal.visible .welcome-wrapper,
+.webpageview.internal.visible .startpage.is-showing-speeddial {
+  background-image: none;
+}
+
+.startpage {
+  margin-left: 55px !important;
+  margin-right: 55px !important;
+}
+
+.startpage-navigation {
+  background: rgba(20, 20, 20, 0.55) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  box-shadow: none !important;
+}
+
+.SpeedDial {
+  background: rgba(20, 20, 20, 0.55) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  border-radius: var(--radius) !important;
+  cursor: pointer;
+}
+
+/* .editable-title-container > .button-title {
+    -webkit-filter: invert(100%) !important;
+    filter: invert(100%) !important;
+} */
+
+/* =========================================================
+   6. LEFT TAB BAR (Overlay Expand on Hover)
+========================================================= */
+#tabs-tabbar-container.left {
+  /* width: var(--closed-tab-width) !important; */
+  max-width: var(--closed-tab-width) !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 50 !important;
+  overflow: hidden !important;
+  transition: max-width 250ms ease !important;
+  background: rgba(20, 20, 20, 0.35) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+}
+
+#tabs-tabbar-container.left:hover {
+  /* width: var(--expanded-tab-width) !important; */
+  max-width: 2000px !important;
+}
+
+/* Hide tab titles when collapsed */
+#tabs-tabbar-container.left .tab-header .title,
+#tabs-tabbar-container.left .tab-header .close,
+#tabs-tabbar-container.left .button-title {
+  opacity: 0 !important;
+  white-space: nowrap !important;
+  transition: opacity 250ms ease !important;
+}
+
+/* Show titles on hover */
+#tabs-tabbar-container.left:hover .tab-header .title,
+#tabs-tabbar-container.left:hover .tab-header .close,
+#tabs-tabbar-container.left:hover .button-title {
+  opacity: 1 !important;
+}
+
+/* Align tab header */
+.tab-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding-left: 12px !important;
+  /* width: var(--expanded-tab-width) !important; */
+  max-width: 2000px;
+}
+
+/* Title gradient fade */
+#tabs-tabbar-container.left:hover .tab-header .title {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    currentcolor 75%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, currentcolor 75%, transparent 100%);
+}
+
+.separator {
+  transform: translateX(calc(var(--PositionX) - 6px))
+    translateY(var(--PositionY)) !important;
+}
+
+/* #browser:not(.alt-tabs) #tabs-container .tab:not(.tab-mini) .close { */
+/* margin-right: 20px !important; */
+/* } */
+
+/* =========================================================
+   7. RIGHT PANEL (Overlay Expand on Hover)
+========================================================= */
+.panel {
+  opacity: 0 !important;
+  transition: opacity 250ms ease !important;
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+#panels-container {
+  /* width: var(--closed-panel-width) !important; */
+  max-width: var(--closed-panel-width) !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 50 !important;
+  overflow: visible !important;
+  transition: max-width 250ms ease !important;
+  background: rgba(20, 20, 20, 0.35) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+}
+
+#panels-container:hover {
+  /* width: var(--expanded-panel-width) !important; */
+  max-width: 2000px !important;
+}
+
+#panels-container:hover .panel {
+  opacity: 1 !important;
+}
+
+/* Target the toolbar wrapper Vivaldi actually renders */
+#panels-container > .toolbar,
+#panels-container .panel-toolbar,
+#panels-container .toolbar-panels {
+  width: var(--closed-panel-width) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* Each individual button */
+#panels-container .button-toolbar,
+#panels-container .button-toolbar button {
+  width: var(--closed-panel-width) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#panels-container:not(:hover) .panel-header,
+#panels-container:not(:hover) .panel-footer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   8. FULLSCREEN OVERRIDES
+========================================================= */
+#browser.fullscreen #webview-container,
+#browser.fullscreen .webpage-view {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#browser.fullscreen #webview-container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
