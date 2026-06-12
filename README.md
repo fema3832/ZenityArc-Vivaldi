@@ -1,6 +1,6 @@
-# Vivaldi Arc/Zen Style Custom CSS Installation Guide
+# *ZenityArc-Vivaldi* custom **Vivaldi Browser** CSS installation guide
 
-This guide will help you install and configure the Arc/Zen style custom CSS for your Vivaldi browser.
+This guide will help you install and configure the ZenityArc-Vivaldi custom CSS for your Vivaldi browser.
 
 ## Step-by-Step Installation
 
